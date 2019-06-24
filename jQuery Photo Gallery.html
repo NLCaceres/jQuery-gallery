@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Adventures with My Girlfriend</title>
+  </head>
+
+  <style>
+    body {
+      background-color: #8ed081;
+    }
+
+    #container {
+      height: 100%;
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+
+    #thumbnails {
+      float: left;
+      width: 20%;
+    }
+
+    #photo-container {
+      height: 80%;
+      width: 100%;
+    }
+
+    #main-pic-container {
+      float: right;
+      width: 80%;
+    }
+
+    #main-image {
+      padding: 5px;
+      height: 50%;
+      width: 50%;
+    }
+
+    .selected {
+      border-width: 2px;
+    }
+  </style>
+
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+      $(function() {
+        $(".thumb").fadeTo("0", "0.5");
+
+        $(".thumb").mouseenter(function() {
+          $(this).fadeTo("0", "1.0");
+        });
+
+        $(".thumb").mouseleave(function() {
+          $(this).fadeTo("0", "0.5");
+        });
+
+        $(".thumb").click(function() {
+          $(".thumb").removeClass("selected");
+          var src = $(this).attr("src");
+          $("#main-image")
+            .hide()
+            .attr("src", src)
+            .fadeIn();
+          if (src === "image1.JPG") {
+            $("#caption").html("Our roadtrip to Disney World!");
+          } else if (src === "image2.JPG") {
+            $("#caption").html(
+              "Taking the opportunity to use an old Polaroid at the beach"
+            );
+          } else if (src === "image3.JPG") {
+            $("#caption").html(
+              "The day Disneyland rained so hard it had to close early!"
+            );
+          } else if (src === "image4.JPG") {
+            $("#caption").html(
+              "Exploring Hollywood Studios on our Disney World trip"
+            );
+          } else if (src === "image5.JPG") {
+            $("#caption").html("A rare picture of Geppetto in Disneyland");
+          } else {
+            $("#caption").html("When we first got our little rescue!");
+          }
+        });
+      });
+    </script>
+
+    <div id="container">
+      <h1 id="title">My Adventures with My Girlfriend</h1>
+
+      <div id="photo-container">
+        <div id="main-pic-container">
+          <div>
+            <img src="./Images/image1.JPG" id="main-image" />
+          </div>
+
+          <div>
+            <p id="caption">Our roadtrip to Disney World!</p>
+          </div>
+        </div>
+
+        <div id="thumbnails">
+          <div>
+            <img
+              src="./Images/image1.JPG"
+              id="img1"
+              class="thumb selected"
+              border="0"
+              height="100"
+              width="100"
+            />
+          </div>
+
+          <div>
+            <img
+              src="./Images/image2.JPG"
+              id="img2"
+              class="thumb selected"
+              border="0"
+              height="100"
+              width="100"
+            />
+          </div>
+          <div>
+            <img
+              src="./Images/image3.JPG"
+              id="img3"
+              class="thumb selected"
+              border="0"
+              height="100"
+              width="100"
+            />
+          </div>
+          <div>
+            <img
+              src="./Images/image4.JPG"
+              id="img4"
+              class="thumb selected"
+              border="0"
+              height="100"
+              width="100"
+            />
+          </div>
+          <div>
+            <img
+              src="./Images/image5.JPG"
+              id="img5"
+              class="thumb selected"
+              border="0"
+              height="100"
+              width="100"
+            />
+          </div>
+          <div>
+            <img
+              src="./Images/image6.JPG"
+              id="img6"
+              class="thumb selected"
+              border="0"
+              height="100"
+              width="100"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
